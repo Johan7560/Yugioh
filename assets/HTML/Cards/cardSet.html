@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="/assets/CSS/materialize.min.css"
+      media="screen,projection"
+    />
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/CSS/styles.css" />
+    <title>Yu-Gi-Oh</title>
+  </head>
+  <body id="bgColour">
+    <nav class="deep-purple darken-2">
+      <div class="container">
+        <div class="nav-wrapper">
+          <a href="/index.html" class="brand-logo"
+            ><img
+              src="/assets/images/puzzle.png"
+              alt=""
+              class="puzzleImageNav"
+            />Yu-Gi-Oh</a
+          >
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="fas fa-bars"></i
+          ></a>
+          <ul class="right hide-on-med-and-down navLinks">
+            <li><a href="./card.html">Card</a></li>
+            <li><a href="#">Card Set</a></li>
+            <li><a href="../Episodes/episodes.html">Episodes</a></li>
+            <li><a href="../ShoppingCart/shop.html">Shop</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <ul class="sidenav mobileSideNavLinks" id="mobile-demo">
+      <li>
+        <a href="./HTML/Cards/card.html"><ion-icon name="pulse"></ion-icon>Card</a>
+      </li>
+      <li>
+        <a href="./HTML/Cards/cardSet.html"><ion-icon name="crop"></ion-icon>Card Set</a>
+      </li>
+      <li>
+        <a href="./HTML/Episodes/episodes.html"
+          ><ion-icon name="wifi"></ion-icon>Episodes</a
+        >
+      </li>
+      <li>
+        <a href="./HTML/ShoppingCart/shop.html"
+          ><ion-icon name="pricetag"></ion-icon>Shop</a
+        >
+      </li>
+    </ul>
+
+    <main class="cardSetContainer">
+      <div class="row">
+        <div class="col s12 cardSet">
+          <a class="waves-effect waves-light purple btn randomBtn" id="generateSet"
+            >Generate Card Set</a
+          >
+        </div>
+      </div>
+
+      <div class="setDisplay"></div>
+    </main>
+
+    <footer class="section deep-purple darken-2 white-text center pagesFooter">
+      <p class="flow-text">
+        Yu-Gi-Oh &copy;
+        <span id="year"></span>
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script type="text/javascript" src="/assets/JS/materialize.min.js"></script>
+    <script defer src="/assets/JS/app.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('.sidenav').sidenav();
+      });
+    </script>
+  </body>
+</html>
