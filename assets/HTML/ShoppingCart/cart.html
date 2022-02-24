@@ -61,13 +61,47 @@
             <div class="products"></div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col s6 offset-s3 shipmentContainer">
+            <h4>Delivery&Shipment</h4>
+            <div class="deliveryOption">
+              <form action="#">
+                <p>
+                  <label>
+                    <input name="deliveryFees" type="radio" value="20" />
+                    <span>PickUp</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input name="deliveryFees" type="radio" value="100" />
+                    <span>Deliver</span>
+                  </label>
+                </p>
+                <p>
+                  <label>
+                    <input
+                      class="with-gap"
+                      name="deliveryFees"
+                      type="radio"
+                      value="250"
+                    />
+                    <span>Express</span>
+                  </label>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+
         <div class="checkingOut"></div>
       </div>
     </main>
 
     <div class="fixed-action-btn show-mobile-only">
       <a
-        class="btn-floating btn-large light-green"
+        class="btn-floating btn-large purple"
         title="Back to Top"
         onclick="scrolltoTop()"
         id="scrollBtn"

@@ -1,3 +1,7 @@
+function onLoad() {
+  localStorage.setItem('deliveryFee', 0);
+}
+
 // Grabbing a nodeList of every product on shop.html
 let carts = document.querySelectorAll('.add-cart');
 
@@ -77,7 +81,7 @@ let products = [
   }
 ];
 
-// Looping prooducts and adding eventListeners which will execute two functions
+// Looping products and adding eventListeners which will execute two functions
 for (let i = 0; i < carts.length; i++) {
   carts[i].addEventListener('click', () => {
     // cartNumbers() keeps track of the number of items in cart to display
@@ -146,6 +150,7 @@ function totalCost(product, action) {
   } else {
     localStorage.setItem('totalCost', product.price);
   }
+  manageDelivery();
 }
 
 // When invoked this function will clear the localStorage
@@ -158,9 +163,12 @@ function clearCart() {
 // After products was selected and client/user navigates to cart.html, all the information will be displayed for client/user
 function displayCart() {
   let cartItems = JSON.parse(localStorage.getItem('productsInCart'));
+
   let cartCost = localStorage.getItem('totalCost');
   let productContainer = document.querySelector('.products');
   let checkingOut = document.querySelector('.checkingOut');
+  let deliveryAmount = JSON.parse(localStorage.getItem('deliveryFee'));
+  console.log(deliveryAmount);
 
   if (cartItems && productContainer) {
     productContainer.innerHTML = '';
@@ -190,43 +198,15 @@ function displayCart() {
         `;
     });
     checkingOut.innerHTML += `
-    <div class="row">
-      <div class="col s6 offset-s3 shipmentContainer">
-        <h4>Delivery&Shipment</h4>
-        <div class="deliveryOption">
-          <form action="#">
-          <p>
-            <label>
-            <input name="group1" type="radio" value='20' checked />
-            <span>PickUp</span>
-            </label>
-          </p>
-          <p>
-            <label>
-            <input name="group1" type="radio" value='100' />
-            <span>Deliver</span>
-            </label>
-          </p>
-          <p>
-            <label>
-            <input class="with-gap" name="group1" type="radio" value='250'  />
-            <span>Express</span>
-            </label>
-            </p>
     
-            </form>
-        </div>
-      </div>
-    </div>
-
       <div class="row">
         <div class="col s6 offset-s3 shipmentContainer">
           <div class="checkoutCartDisplay">
             <ul class="collection with-header">
               <li class="collection-header"><h5>Confirm Order</h5></li>
               <li class="collection-item">
-                <div>Delivery
-                  <p class="secondary-content"></p>
+                <div>Delivery Fee
+                  <p class="secondary-content">R ${deliveryAmount}</p>
                 </div>
               </li>
               <li class="collection-item">
@@ -249,16 +229,63 @@ function displayCart() {
                 </div>
               </li>
             </ul>
-            <a class="waves-effect waves-light btn-large checkoutBtn">Checkout</a>
+            <a id="checkOutBtn" class="waves-effect waves-light btn-large">Checkout</a>
           </div>
         </div>
       </div>
     `;
   }
   // Functions that are invoked when displayCart() is called
-  deleteButtons();
   manageQuantity();
+  deleteButtons();
   manageDelivery();
+}
+
+// Redirects client back to home page after checkout is confirmed
+function redirectToHome() {
+  window.location = '/index.html';
+}
+
+// Referencing the client with their generated number
+function referenceGenerator() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
+function manageDelivery() {
+  let deliveryFees = document.querySelectorAll('input[name="deliveryFees"]');
+  let totalAmount = JSON.parse(localStorage.getItem('totalCost'));
+
+  deliveryFees.forEach((fee) => {
+    fee.addEventListener('click', () => {
+      if (fee.value === '20') {
+        totalAmount += 20;
+        console.log(totalAmount);
+      } else if (fee.value == '100') {
+        totalAmount += 100;
+        console.log(totalAmount);
+      } else {
+        totalAmount += 250;
+        console.log(totalAmount);
+      }
+      localStorage.setItem('totalCost', totalAmount);
+      localStorage.setItem('deliveryFee', fee.value);
+
+      displayCart();
+    });
+  });
+  finishCheckout();
+}
+function finishCheckout() {
+  let payment = document.getElementById('checkOutBtn');
+  payment.addEventListener('click', () => {
+    alert('Thank you for your purchase, your reference is: ' + referenceGenerator());
+    redirectToHome();
+    clearCart();
+  });
 }
 
 // This functions deletes the entire product from the cart.html page and also localStorage
@@ -341,18 +368,48 @@ function manageQuantity() {
   }
 }
 
-function manageDelivery() {
-  let checkBoxes = document.querySelectorAll('input[name="group1"]');
-  console.log(checkBoxes);
+// checkBoxes.addEventListener('click', () => {
+//   console.log(checkBoxes[i].value);
+//   if (checkBoxes[i].value === '20') {
+//     totalAmount += 20;
+//     console.log(totalAmount);
+//     totalCost(totalAmount);
+//     localStorage.setItem('totalCost', totalAmount);
+//     displayCart();
+//   }
+// });
 
-  for (let i = 0; i < checkBoxes.length; i++) {
-    checkBoxes[i].addEventListener('click', () => {
-      console.log(checkBoxes[i].value);
-    });
-  }
-}
+// function manageDelivery() {
+//   let checkBoxes = document.querySelectorAll('input[name="group1"]');
+//   console.log(checkBoxes);
+//   let totalAmount = JSON.parse(localStorage.getItem('totalCost'));
+//   //console.log(totalAmount);
+//   checkBoxes.forEach((checkBox) => {
+//     checkBox.addEventListener('click', () => {
+//       if (checkBox.value == '20') {
+//         totalAmount += 20;
+//         console.log(totalAmount);
+//       } else if (checkBox.value == '100') {
+//         totalAmount += 100;
+//         console.log(totalAmount);
+//       } else if (checkBox.value == '250') {
+//         totalAmount += 250;
+//         console.log(totalAmount);
+//       } else {
+//         alert('Jy dan nou net mooi fokkol gekies');
+//       }
+//       localStorage.setItem('totalCost', totalAmount);
+//       displayCart();
+//     });
+//   });
 
-// Manages the delivery cost on what the client decides
+// for (let i = 0; i < checkBoxes.length; i++) {
+//   checkBoxes[i].addEventListener('click', () => {
+//     console.log(checkBoxes[i].value);
+//   });
+// }
+
+//Manages the delivery cost on what the client decides
 // function manageDelivery() {
 //   let checkBoxes = document.querySelectorAll('input[name="deliveryOptions"]');
 //   //console.log(checkBoxes);
@@ -367,18 +424,7 @@ function manageDelivery() {
 //     });
 //   });
 
-//checkBoxes.addEventListener('click', () => {
-// console.log(checkBoxes[i].value);
-//if (checkBoxes[i].value === '20') {
-//totalAmount += 20;
-//console.log(totalAmount);
-//totalCost(totalAmount);
-//localStorage.setItem('totalCost', totalAmount);
-//displayCart();
-//}
-//}//);
-//}
-
 // Runs as app is loaded
+onLoad();
 onLoadCartNumbers();
 displayCart();
