@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" defer />
+    <title>Shop</title>
+  </head>
+  <body class="body">
+    <header>
+      <div class="overlay"></div>
+      <div class="topContainer">
+        <h2 class="white-text">SHOP</h2>
+        <ul class="links">
+          <li class="cart"><a href="../index.html">Home</a></li>
+          <li class="cart">
+            <a href="#">
+              <ion-icon name="basket"></ion-icon>Cart<span
+                class="checkout-number"
+                >0</span
+              >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="cartSection">
+      <div class="products-container">
+        <div class="product-header">
+          <h5 class="product-title">PRODUCT</h5>
+          <h5 class="price">PRICE</h5>
+          <h5 class="quantity">QUANTITY</h5>
+          <h5 class="total">TOTAL</h5>
+        </div>
+        <div class="products"></div>
+        <button class="discount">Apply Discount</button>
+        <button class="shipment">Shipment</button>
+        <button class="order">Confirm Order</button>
+      </div>
+    </main>
+
+    <footer class="section deep-purple darken-2 white-text center">
+      <p class="flow-text">
+        Yu-Gi-Oh &copy;
+        <span id="year"></span>
+      </p>
+    </footer>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="../JS/app.js" defer></script>
+  </body>
+</html>

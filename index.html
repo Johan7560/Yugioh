@@ -5,67 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link
-      type="text/css"
-      rel="stylesheet"
-      href="/assets/CSS/materialize.min.css"
-      media="screen,projection"
-    />
-    <link
-      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/CSS/styles.css" />
+    <link rel="stylesheet" href="./CSS/styles.css" defer />
     <title>Yu-Gi-Oh</title>
   </head>
-
   <body>
-    <nav class="deep-purple darken-2">
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo"
-            ><img
-              src="./assets/images/puzzle.png"
-              alt=""
-              class="puzzleImageNav"
-            />Yu-Gi-Oh</a
-          >
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-            ><i class="fas fa-bars"></i
-          ></a>
-          <ul class="right hide-on-med-and-down navLinks">
-            <li><a href="/assets/HTML/Cards/card.html">Card</a></li>
-            <li><a href="/assets/HTML/Cards/cardSet.html">Card Set</a></li>
-            <li><a href="/assets/HTML/Episodes/episodes.html">Episodes</a></li>
-            <li><a href="/assets/HTML/ShoppingCart/shop.html">Shop</a></li>
-          </ul>
-        </div>
+    <nav>
+      <div class="nav-wrapper deep-purple darken-2">
+        <img src="images/puzzle.png" alt="" class="circle responsive-img" />
+        <a href="#" class="brand-logo">Yu-Gi-Oh</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down nav-links">
+          <li><a href="./Cards/card.html">Card</a></li>
+          <li><a href="./Cards/cardSet.html">Card Set</a></li>
+          <li><a href="./Episodes/episodes.html">Episodes</a></li>
+          <li><a href="./ShoppingCart/shop.html">Shop</a></li>
+        </ul>
       </div>
     </nav>
-    <ul class="sidenav mobileSideNavLinks" id="mobile-demo">
-      <li>
-        <a href="/assets/HTML/Cards/card.html"><ion-icon name="pulse"></ion-icon>Card</a>
-      </li>
-      <li>
-        <a href="/assets/HTML/Cards/cardSet.html"
-          ><ion-icon name="crop"></ion-icon>Card Set</a
-        >
-      </li>
-      <li>
-        <a href="/assets/HTML/Episodes/episodes.html"
-          ><ion-icon name="wifi"></ion-icon>Episodes</a
-        >
-      </li>
-      <li>
-        <a href="/assets/HTML/ShoppingCart/shop.html"
-          ><ion-icon name="pricetag"></ion-icon>Shop</a
-        >
-      </li>
-    </ul>
 
     <section id="wrapper" class="skewed">
       <div class="layer bottom">
@@ -75,7 +36,7 @@
             <p>Yuma Tsukumo is a character in the spin-off manga Yu-Gi-Oh!</p>
           </div>
 
-          <img src="./assets/images/newschool.jpg" alt="" />
+          <img src="./images/newschool.jpg" alt="" />
         </div>
       </div>
 
@@ -84,12 +45,12 @@
           <div class="content-body">
             <h1>Old School</h1>
             <p>
-              Yama Yugi and also referred to as the Nameless Pharaoh Atem that has been
-              sealed in the millennium Puzzle.
+              Yama Yugi and also referred to as the Nameless Pharaoh Atem that
+              has been sealed in the millennium Puzzle.
             </p>
           </div>
 
-          <img src="./assets/images/oldschool.jpg" alt="" />
+          <img src="./images/oldschool.jpg" alt="" />
         </div>
       </div>
 
@@ -103,19 +64,14 @@
       </p>
     </footer>
 
-    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
-    <script type="text/javascript" src="/assets/JS/materialize.min.js"></script>
-    <script defer src="./assets/JS/app.js"></script>
-    <script>
-      $(document).ready(function () {
-        $('.sidenav').sidenav();
-      });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="./JS/main.js" defer></script>
+    <script src="./JS/app.js" defer></script>
   </body>
 </html>
